@@ -8,7 +8,7 @@ import { environment } from '../../environment/environment';
   providedIn: 'root'
 })
 export class LocationService {
-  endpoint = 'classes/Onibus/ultima';
+  endpoint = 'classes/Onibus';
   api = environment.api;
   constructor(
     private http: HttpClient

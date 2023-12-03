@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LocationComponent } from './pages/location/location.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path:'localizacoes', component: LocationComponent}
+  {path:'localizacoes', component: LocationComponent},
+  {path:'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
