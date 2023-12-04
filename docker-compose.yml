@@ -1,0 +1,7 @@
+version: "3"
+services:
+  movus-client:
+    image: movus-client
+    build: .
+    ports:
+      - 4200:80
