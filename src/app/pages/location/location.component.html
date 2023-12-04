@@ -1,4 +1,4 @@
-<main class="">
+<main class="container-fluid">
   <h1 class="display-6 my-3">Localizações</h1>
   <hr>
   <table class="table table-striped table-bordered mt-5">
@@ -8,14 +8,16 @@
         <th scope="col" class="col-sm-2">Longitude</th>
         <th scope="col" class="col-sm-2">Data</th>
         <th scope="col" class="col-sm-2">Hora</th>
+        <th scope="col" class="col-sm-2">Sensor_ID</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let location of locations">
-        <td>{{location.latitude}}</td>
-        <td>{{location.longitude}}</td>
-        <td>{{location.data}}</td>
+        <td>{{location.posicaoAtual.latitude}}</td>
+        <td>{{location.posicaoAtual.longitude}}</td>
+        <td>{{location.dataF}}</td>
         <td>{{location.hora}}</td>
+        <td>{{location.sensorId}}</td>
       </tr>
     </tbody>
   </table>

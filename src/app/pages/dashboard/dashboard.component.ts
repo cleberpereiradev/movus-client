@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import Chart from 'chart.js';
-
-// // core components
-// import {
-//   chartOptions,
-//   parseOptions,
-//   chartExample1,
-//   chartExample2
-// } from "../../variables/charts";
+import Chart from 'chart.js/auto';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,45 +9,79 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  public datasets: any;
-  public data: any;
-  //public salesChart;
-  public clicked: boolean = true;
-  public clicked1: boolean = false;
+  public busQuantity: number = 0;
+  public sensorQuantity: number = 0;
+  public locationQuantityToday: number = 0;
+  public totalQuantityLocation: number = 0;
 
-  ngOnInit() {
+  constructor(
+    private service: DashboardService
+  ) { }
+  
+  ngOnInit() :void{
 
-    this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
-    ];
-    this.data = this.datasets[0];
+    this.service.countBus().subscribe((result:any) => {
+      console.log(result);
+      this.busQuantity = result;
+    });
 
+    this.service.countSensor().subscribe((result:any) => {
+      console.log(result);
+      this.sensorQuantity = result;
+    });
 
-    var chartOrders = document.getElementById('chart-orders');
+    this.service.countLocation().subscribe((result:any) => {
+      console.log(result);
+      this.locationQuantityToday = result;
+    });
 
-    //parseOptions(Chart, chartOptions());
+    this.service.countAllLocation().subscribe((result:any) => {
+      console.log(result);
+      this.totalQuantityLocation = result;
+    });
 
-
-    // var ordersChart = new Chart(chartOrders, {
-    //   type: 'bar',
-    //   options: chartExample2.options,
-    //   data: chartExample2.data
-    // });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    // this.salesChart = new Chart(chartSales, {
-		// 	type: 'line',
-		// 	options: chartExample1.options,
-		// 	data: chartExample1.data
-		// });
+    this.service.obterDadosUltimos7Dias().subscribe((result:any) => {
+      console.log(result);
+      this.createChart(result);
+    });
   }
 
-
-  public updateOptions() {
-    // this.salesChart.data.datasets[0].data = this.data;
-    // this.salesChart.update();
+  private createChart(dados: number[]): void {
+    const chartCanvas = document.getElementById('chart-orders') as HTMLCanvasElement;
+  
+    if (!chartCanvas) {
+      console.error('Elemento do gráfico não encontrado.');
+      return;
+    }
+  
+    const ctx = chartCanvas.getContext('2d');
+  
+    if (!ctx) {
+      console.error('Contexto do gráfico não encontrado.');
+      return;
+    }
+  
+    const seuGrafico = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [{
+          label: 'Registros',
+          data: dados,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Cor de fundo das barras
+          borderColor: 'rgba(75, 192, 192, 1)',     // Cor da borda das barras
+          borderWidth: 1                           // Largura da borda das barras
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   }
-
+  
 }
+

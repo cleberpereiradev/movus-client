@@ -18,6 +18,7 @@ export class LocationComponent implements OnInit{
 
   ngOnInit(): void {
     this.service.listLocations().subscribe((result:ILocation[]) => {
+      console.log(result);
       this.locations = result;
     });
   }

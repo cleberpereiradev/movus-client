@@ -2,7 +2,7 @@
 
 nav {
     width: 100%;
-    min-height: 10vh;
+    min-height: 12vh;
 }
 
 .nav_color {
@@ -12,47 +12,17 @@ nav {
 .nav_logo {
     width: 100px;
     height: 50px;
+    
 }
 
-.nav_flex {
-    justify-content: right;
-}
 
-.botom_nav {
-    color: white;
-    font-weight: 600;
-    margin-right: 20px;
-    border: 3px solid white;
-    border-radius: 15px;
-    padding: 5px 20px;
-    transition: all 0.3s ease-in-out;
-}
-
-.botom_nav:hover, .active_nav {
-    color: #B2292C;
-    background-color: white;
-}
-
-.botom_nav:hover {
-    transform: translateY(-2px);
-}
-
-.Nome_user {
-    color: white;
-    font-weight: 600;
-}
 
 /*footer*/
 
-.footer_cell {
-    display: none;
-    transition: all 0.4s ease;
-}
-
 footer{
     width: 100%;
-    min-height: 25vh;
-    margin-top: 3em;
+    min-height: 8vh;
+    margin-top: 1em;
     background-color:#B2292C;
 }
 
