@@ -3,11 +3,11 @@ const path = require('path');
 const app = express();
 
 // Configuração para servir arquivos estáticos do Angular
-app.use(express.static(path.join(__dirname, 'dist/movus-app')));
+app.use(express.static(path.join(__dirname, 'dist/movus-client')));
 
 // Rota para lidar com todas as outras solicitações
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', '/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/movus-client/index.html'));
 });
 
 // Use process.env.PORT ou a porta 3000 por padrão
