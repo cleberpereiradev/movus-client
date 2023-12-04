@@ -7,7 +7,7 @@ app.use(express.static(path.join(__dirname, 'dist/movus-app')));
 
 // Rota para lidar com todas as outras solicitações
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/movus-app/index.html'));
+  res.sendFile(path.join(__dirname, 'dist', '/index.html'));
 });
 
 // Use process.env.PORT ou a porta 3000 por padrão
