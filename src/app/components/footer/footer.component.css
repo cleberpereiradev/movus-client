@@ -15,33 +15,6 @@ nav {
     
 }
 
-
-
-/*footer*/
-
-footer{
-    width: 100%;
-    min-height: 8vh;
-    margin-top: 1em;
-    background-color:#B2292C;
-}
-
-.footer_bot {
-    padding: 1em 0;
-    color: white;
-    font-weight: 600;
-}
-
-.movus_footer {
-    display: flex;
-    flex-direction: column;
-}
-
-.Movus_aba {
-    text-decoration: none;
-    color: #B0B0B0;
-}
-
 @media only screen and (max-width: 600px) {
     .footer_pc{
         display: none;
