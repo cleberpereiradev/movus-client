@@ -1,3 +1,3 @@
 export const environment = {
-    api : 'http://localhost:8080'
+    api : '2988-179-127-103-71.ngrok-free.app'
 }
