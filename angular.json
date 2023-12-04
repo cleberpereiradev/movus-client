@@ -13,6 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedHosts": [
+              "localhost:4200",
+              "https://2cbf-2804-5d80-4185-86fc-7cfc-dc25-484f-e818.ngrok-free.app"
+            ],
             "outputPath": "dist/movus-client",
             "index": "src/index.html",
             "main": "src/main.ts",
