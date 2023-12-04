@@ -19,7 +19,11 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+<<<<<<< HEAD
     "express": "^4.18.2",
+=======
+    "ngrok": "^5.0.0-beta.2",
+>>>>>>> 8c720ca8265cc6e69d35b0322d8f1034bbddcfdb
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.13.0"
